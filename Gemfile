@@ -57,3 +57,8 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
+gem 'twitter-bootswatch-rails', '~> 3.1.1'
+gem 'twitter-bootswatch-rails-helpers'
+gem 'execjs'
+gem 'less-rails'
+
