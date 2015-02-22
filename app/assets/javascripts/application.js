@@ -16,4 +16,5 @@
 //= require flatly/loader
 //= require flatly/bootswatch
 //= require flatly
+//= require jquery-fileupload/basic
 

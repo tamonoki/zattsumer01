@@ -63,3 +63,8 @@ gem 'twitter-bootswatch-rails-helpers'
 gem 'execjs'
 gem 'less-rails'
 
+gem 'carrierwave'
+group :assets do
+  gem 'jquery-fileupload-rails'
+end
+
