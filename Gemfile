@@ -57,14 +57,15 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
-gem 'therubyracer'
+#gem 'therubyracer'
 gem 'twitter-bootswatch-rails', '~> 3.1.1'
 gem 'twitter-bootswatch-rails-helpers'
 gem 'execjs'
 gem 'less-rails'
 
 gem 'carrierwave'
-group :assets do
+gem 'rmagick'
+#group :assets do
   gem 'jquery-fileupload-rails'
-end
+#end
 
