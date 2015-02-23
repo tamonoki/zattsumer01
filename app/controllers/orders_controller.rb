@@ -28,6 +28,9 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+		  Resque.enqueue(Mylogger, "inOrder")
+		  Resque.enqueue(MyTest, "inOrder:MyTest")
+
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else

@@ -69,3 +69,5 @@ gem 'rmagick'
   gem 'jquery-fileupload-rails'
 #end
 
+gem 'resque'
+

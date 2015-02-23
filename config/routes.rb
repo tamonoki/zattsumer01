@@ -1,5 +1,10 @@
+require 'resque/server'
+
 Rails.application.routes.draw do
   resources :orders
+
+  get 'users/:name', :to => 'users#show'
+  mount Resque::Server.new, at: "/resque"
 
   #get 'static_pages/index'
 
