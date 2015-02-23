@@ -24,15 +24,24 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+    #@order = Order.new(order_params)
+    @order = Order.new(params[:order])
 
     respond_to do |format|
       if @order.save
 		  Resque.enqueue(Mylogger, "inOrder")
 		  Resque.enqueue(MyTest, "inOrder:MyTest")
 
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
+        #format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html {
+          render :json => [@order.to_jq_upload].to_json,
+          :content_type => 'text/html',
+          :layout => false
+        }
+        #format.json { render :show, status: :created, location: @order }
+        format.json {
+          render :json => [@order.to_jq_upload].to_json
+        }
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
